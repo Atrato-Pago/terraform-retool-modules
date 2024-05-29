@@ -8,6 +8,11 @@ output "ecs_alb_arn" {
   description = "Retool ALB arn"
 }
 
+output "ecs_alb_security_group_id" {
+  value       = aws_security_group.alb.id
+  description = "Security group ID for ALB"
+}
+
 output "ecs_cluster_name" {
   value       = aws_ecs_cluster.this.name
   description = "Name of AWS ECS Cluster"
