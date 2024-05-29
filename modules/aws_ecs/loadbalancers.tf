@@ -4,6 +4,7 @@ resource "aws_lb" "this" {
 
   security_groups = [aws_security_group.alb.id]
   subnets         = var.alb_publicly_accessible ? var.public_subnet_ids : var.private_subnet_ids
+  internal        = var.alb_publicly_accessible ? false : true
 
   lifecycle {
     precondition {
