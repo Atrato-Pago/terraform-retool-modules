@@ -103,7 +103,7 @@ variable "ecs_task_resource_map" {
     }
 
     code_executor = {
-      cpu = 2048
+      cpu    = 2048
       memory = 4096
     }
   }
@@ -141,8 +141,8 @@ variable "rds_instance_engine_version" {
 }
 
 variable "rds_instance_auto_minor_version_upgrade" {
-  type = bool
-  default = true
+  type        = bool
+  default     = true
   description = "Whether to automatically upgrade the minor version of the Postgres RDS instance. Defaults to true."
 }
 
@@ -264,6 +264,12 @@ variable "alb_http_redirect" {
   type        = bool
   default     = false
   description = "Boolean for if http should redirect to https"
+}
+
+variable "alb_publicly_accessible" {
+  type        = bool
+  default     = true
+  description = "Whether the ALB should be publicly accessible. Defaults to true."
 }
 
 variable "cookie_insecure" {
