@@ -4,6 +4,13 @@ resource "aws_lb" "this" {
 
   security_groups = [aws_security_group.alb.id]
   subnets         = var.alb_publicly_accessible ? var.public_subnet_ids : var.private_subnet_ids
+
+  lifecycle {
+    precondition {
+      condition     = var.alb_publicly_accessible == true && var.public_subnet_ids != null
+      error_message = "If alb_publicly_accessible is false, public_subnet_ids must be set"
+    }
+  }
 }
 
 resource "aws_lb_listener" "this" {

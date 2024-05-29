@@ -23,6 +23,7 @@ variable "private_subnet_ids" {
 variable "public_subnet_ids" {
   type        = list(string)
   description = "Select at least two subnets in your selected VPC."
+  default     = null
 }
 
 
